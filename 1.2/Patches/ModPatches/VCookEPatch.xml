@@ -32,17 +32,12 @@
 								<li>VCE_Cheese</li>
 							</thingCategories>
 							<ingestible>
-								<tasteThought>AteLavishMeal</tasteThought>
+								<tasteThought>RM_ConsumedThrumboMilk</tasteThought>
+								<specialThoughtAsIngredient>RM_ConsumedThrumboMilk</specialThoughtAsIngredient>
 								<ingestEffect>EatVegetarian</ingestEffect>
 								<preferability>MealLavish</preferability>
 								<ingestSound>Meal_Eat</ingestSound>
 								<maxNumToIngestAtOnce>7</maxNumToIngestAtOnce>
-								<outcomeDoers>
-									<li Class="IngestionOutcomeDoer_GiveHediff">
-										<hediffDef>ThrumboMilkNourish</hediffDef>
-										<severity>0.75</severity>
-									</li>
-								</outcomeDoers>
 							</ingestible>
 							<comps>
 								<li>

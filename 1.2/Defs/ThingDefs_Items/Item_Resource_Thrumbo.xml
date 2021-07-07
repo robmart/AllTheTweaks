@@ -52,17 +52,12 @@
     </statBases>
     <techLevel>Neolithic</techLevel>
     <ingestible>
-      <tasteThought>AteLavishMeal</tasteThought>
+      <tasteThought>RM_ConsumedThrumboMilk</tasteThought>
+      <specialThoughtAsIngredient>RM_ConsumedThrumboMilk</specialThoughtAsIngredient>
       <ingestEffect>EatVegetarian</ingestEffect>
       <ingestSound>Ingest_Beer</ingestSound>
       <preferability>RawTasty</preferability>
       <foodType>AnimalProduct, Fluid</foodType>
-      <outcomeDoers>
-        <li Class="IngestionOutcomeDoer_GiveHediff">
-          <hediffDef>ThrumboMilkNourish</hediffDef>
-          <severity>1.0</severity>
-        </li>
-      </outcomeDoers>
     </ingestible>
     <comps>
       <li Class="CompProperties_Drug">

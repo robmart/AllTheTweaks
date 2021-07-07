@@ -1,10 +1,14 @@
 ﻿using Verse;
 
 namespace FaunaFloraTweaks {
+    public class FaunaFloraTweaks : Mod {
+        FaunaFloraTweaks(ModContentPack content) : base(content) {
+        }
+    }
+
     [StaticConstructorOnStartup]
-    public static class FaunaFloraTweaks {
-        static FaunaFloraTweaks() {
-            Log.Message("Hello World!");
+    public static class FaunaFloraTweaksStartup {
+        static FaunaFloraTweaksStartup() {
         }
     }
 }

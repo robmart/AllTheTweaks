@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- ======= Ingredient based thoughts ========= -->
+    
+    <ThoughtDef>
+        <defName>RM_ConsumedThrumboMilk</defName>
+        <thoughtClass>VanillaCookingExpanded.Thought_Hediff</thoughtClass>
+        <hediff>ThrumboMilkNourish</hediff>
+        <stages>
+            <li>
+                <label>consumed thrumbo milk</label>
+                <description>This surely is the tastiest thing in the galaxy.</description>
+                <baseMoodEffect>10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>
