@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName = "Thrumbo"]/race</xpath>
+		<value>
+			<nameOnTameChance>1</nameOnTameChance>
+			<nuzzleMtbHours>80</nuzzleMtbHours>
+			<nameOnNuzzleChance>1</nameOnNuzzleChance>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName = "Thrumbo"]/race</xpath>
+		<value>
+			<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>*/ThingDef[defName = "Thrumbo"]/race/wildness</xpath>
+		<value>
+			<wildness>0.9</wildness>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<xpath>*/ThingDef[defName = "Thrumbo"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Thrumbo"]</xpath>
+			<value>
+				<comps>
+					<li Class="CompProperties_Shearable">
+						<woolDef>ThrumboWool</woolDef>
+						<shearIntervalDays>60</shearIntervalDays>
+						<woolAmount>200</woolAmount>
+					</li>
+					<li Class="CompProperties_Milkable">
+						<milkDef>ThrumboMilk</milkDef>
+						<milkIntervalDays>15</milkIntervalDays>
+						<milkAmount>5</milkAmount>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Thrumbo"]/comps</xpath>
+			<value>
+				<li Class="CompProperties_Shearable">
+					<woolDef>ThrumboWool</woolDef>
+					<shearIntervalDays>60</shearIntervalDays>
+					<woolAmount>200</woolAmount>
+				</li>
+				<li Class="CompProperties_Milkable">
+					<milkDef>ThrumboMilk</milkDef>
+					<milkIntervalDays>15</milkIntervalDays>
+					<milkAmount>5</milkAmount>
+				</li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="WoolBase">
+    <defName>ThrumboWool</defName>
+    <label>thrumbo Wool</label>
+    <description>Rare, beautiful and provides very good insulation. Thrumbo Wool clothes is the height of luxury.</description>
+    <graphicData>
+      <color>(233,233,233)</color>
+    </graphicData>
+    <statBases>
+      <Mass>0.032</Mass>
+      <MarketValue>23.3</MarketValue>
+      <MaxHitPoints>320</MaxHitPoints>
+      <Flammability>0.32</Flammability>
+      <DeteriorationRate>3.2</DeteriorationRate>
+      <StuffPower_Armor_Sharp>0.32</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.32</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.32</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>32</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>32</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(233,233,233)</color>
+      <commonality>0.32</commonality>
+      <statFactors>
+        <Flammability>0.32</Flammability>
+        <MarketValue>1.32</MarketValue>
+        <MaxHitPoints>3.2</MaxHitPoints>
+		<WorkToBuild>3.2</WorkToBuild>
+		<WorkToMake>3.2</WorkToMake>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+
+  <ThingDef ParentName="OrganicProductBase">
+    <defName>ThrumboMilk</defName>
+    <label>thrumbo Milk</label>
+    <description>An extremely rare delicacy, only Glitter World aristocracy has the privilege to consume it even once in their lifetime.</description>
+    <graphicData>
+      <texPath>Things/Item/Milk/ThrumboMilk</texPath>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <rotatable>false</rotatable>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <Mass>0.5</Mass>
+      <Nutrition>1.6</Nutrition>
+      <MarketValue>200</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <tasteThought>AteLavishMeal</tasteThought>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Ingest_Beer</ingestSound>
+      <preferability>RawTasty</preferability>
+      <foodType>AnimalProduct, Fluid</foodType>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>ThrumboMilkNourish</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>999</listOrder>
+      </li>
+    </comps>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AnimalProductRaw</li>
+    </thingCategories>
+
+  </ThingDef>
+</Defs>
