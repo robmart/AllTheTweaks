@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchProjectDef>
+		<defName>RMAmbrosiaResearch</defName>
+		<label>Ambrosia</label>
+		<description>Due to your now advanced scanning capabilities, you can figure out how to grow ambrosia. Ambrosia can only be grown using hydroponics.</description>
+		<baseCost>2500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<researchViewX>10.00</researchViewX>
+		<researchViewY>0</researchViewY>
+		<prerequisites>
+			<li>Hydroponics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+</Defs>
