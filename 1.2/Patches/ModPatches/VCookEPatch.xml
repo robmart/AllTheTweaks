@@ -32,8 +32,9 @@
 								<li>VCE_Cheese</li>
 							</thingCategories>
 							<ingestible>
-								<preferability>MealSimple</preferability>
-								<ingestEffect>EatMeat</ingestEffect>
+								<tasteThought>AteLavishMeal</tasteThought>
+								<ingestEffect>EatVegetarian</ingestEffect>
+								<preferability>MealLavish</preferability>
 								<ingestSound>Meal_Eat</ingestSound>
 								<maxNumToIngestAtOnce>7</maxNumToIngestAtOnce>
 								<outcomeDoers>
