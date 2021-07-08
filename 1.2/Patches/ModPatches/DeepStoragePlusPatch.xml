@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Cooking Expanded</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- Thrumbo Milk -->
+
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>/Defs/ThingDef[defName="DSP_Barrel"]/building/fixedStorageSettings/filter/thingDefs</xpath>
+                    <value>
+                        <li>ThrumboMilk</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+
+</Patch>
+
