@@ -361,3 +361,5 @@ MigrationBackup/
 *.sln
 
 *.csproj
+
+Source/.idea/.idea.Source/.idea/
