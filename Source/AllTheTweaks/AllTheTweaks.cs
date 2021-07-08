@@ -2,6 +2,7 @@
 using HugsLib;
 using HugsLib.Settings;
 using Verse;
+using VFECore;
 
 namespace AllTheTweaks {
     public class AllTheTweaks : ModBase {
@@ -15,44 +16,44 @@ namespace AllTheTweaks {
         public override void DefsLoaded() {
             _canThrumbosBeMilked = Settings.GetHandle<bool>(
                 "_canThrumbosBeMilked", 
-                "_canThrumbosBeMilked_title", 
-                "_canThrumbosBeMilked_desc", 
+                "_canThrumbosBeMilked_title".Translate(), 
+                "_canThrumbosBeMilked_desc".Translate(), 
                 true
                 );
             _canThrumboMildBeCheese = Settings.GetHandle<bool>(
                 "_canThrumboMildBeCheese", 
-                "_canThrumboMildBeCheese_title", 
-                "_canThrumboMildBeCheese_desc", 
+                "_canThrumboMildBeCheese_title".Translate(), 
+                "_canThrumboMildBeCheese_desc".Translate(), 
                 true
                 );
             _canThrumbosGrowWool = Settings.GetHandle<bool>(
                 "_canThrumbosGrowWool", 
-                "_canThrumbosGrowWool_title", 
-                "_canThrumboMildBeCheese_desc", 
+                "_canThrumbosGrowWool_title".Translate(), 
+                "_canThrumboMildBeCheese_desc".Translate(), 
                 true
                 );
             _canAmbrosiaBeGrown = Settings.GetHandle<bool>(
                 "_canAmbrosiaBeGrown", 
-                "_canAmbrosiaBeGrown_title", 
-                "_canAmbrosiaBeGrown_desc", 
+                "_canAmbrosiaBeGrown_title".Translate(), 
+                "_canAmbrosiaBeGrown_desc".Translate(), 
                 true
                 );
             _doesAmbrosiaNeedToBeResearched = Settings.GetHandle<bool>(
                 "_doesAmbrosiaNeedToBeResearched", 
-                "_doesAmbrosiaNeedToBeResearched_title", 
-                "_doesAmbrosiaNeedToBeResearched_desc", 
+                "_doesAmbrosiaNeedToBeResearched_title".Translate(), 
+                "_doesAmbrosiaNeedToBeResearched_desc".Translate(), 
                 true
                 );
             _doesAmbrosiaNeedHydroponics = Settings.GetHandle<bool>(
                 "_doesAmbrosiaNeedHydroponics", 
-                "_doesAmbrosiaNeedHydroponics_title", 
-                "_doesAmbrosiaNeedHydroponics_desc", 
+                "_doesAmbrosiaNeedHydroponics_title".Translate(), 
+                "_doesAmbrosiaNeedHydroponics_desc".Translate(), 
                 true
                 ); 
             _reqAmbrosiaGrowLevel = Settings.GetHandle<int>(
                 "_reqAmbrosiaGrowLevel", 
-                "_reqAmbrosiaGrowLevel_title", 
-                "_reqAmbrosiaGrowLevel_desc", 
+                "_reqAmbrosiaGrowLevel_title".Translate(), 
+                "_reqAmbrosiaGrowLevel_desc".Translate(), 
                 18
                 );
         }
