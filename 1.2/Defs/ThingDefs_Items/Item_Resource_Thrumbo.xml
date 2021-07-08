@@ -59,11 +59,6 @@
       <preferability>RawTasty</preferability>
       <foodType>AnimalProduct, Fluid</foodType>
     </ingestible>
-    <comps>
-      <li Class="CompProperties_Drug">
-        <listOrder>999</listOrder>
-      </li>
-    </comps>
     <tradeTags>
       <li>ExoticMisc</li>
     </tradeTags>
