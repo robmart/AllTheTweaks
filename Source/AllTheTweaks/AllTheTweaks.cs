@@ -6,6 +6,8 @@ using VFECore;
 
 namespace AllTheTweaks {
     public class AllTheTweaks : ModBase {
+        #region Config
+
         private SettingHandle<bool> _canThrumbosBeMilked;
         private SettingHandle<bool> _canThrumboMilkBeCheese;
         private SettingHandle<bool> _canThrumbosGrowWool;
@@ -21,7 +23,7 @@ namespace AllTheTweaks {
                 true
                 );
             _canThrumbosBeMilked.OnValueChanged = newValue => {
-                OnConfigValueChanged(_canThrumbosBeMilked, newValue);
+                OnConfigValueToggleableChanged(_canThrumbosBeMilked, newValue);
             };
             _canThrumboMilkBeCheese = Settings.GetHandle<bool>(
                 "_canThrumboMilkBeCheese", 
@@ -30,7 +32,7 @@ namespace AllTheTweaks {
                 true
                 );
             _canThrumboMilkBeCheese.OnValueChanged = newValue => {
-                OnConfigValueChanged(_canThrumboMilkBeCheese, newValue);
+                OnConfigValueToggleableChanged(_canThrumboMilkBeCheese, newValue);
             };
             _canThrumbosGrowWool = Settings.GetHandle<bool>(
                 "_canThrumbosGrowWool", 
@@ -39,7 +41,7 @@ namespace AllTheTweaks {
                 true
                 );
             _canThrumbosGrowWool.OnValueChanged = newValue => {
-                OnConfigValueChanged(_canThrumbosGrowWool, newValue);
+                OnConfigValueToggleableChanged(_canThrumbosGrowWool, newValue);
             };
             _canAmbrosiaBeGrown = Settings.GetHandle<bool>(
                 "_canAmbrosiaBeGrown", 
@@ -48,7 +50,7 @@ namespace AllTheTweaks {
                 true
                 );
             _canAmbrosiaBeGrown.OnValueChanged = newValue => {
-                OnConfigValueChanged(_canAmbrosiaBeGrown, newValue);
+                OnConfigValueToggleableChanged(_canAmbrosiaBeGrown, newValue);
             };
             _doesAmbrosiaNeedToBeResearched = Settings.GetHandle<bool>(
                 "_doesAmbrosiaNeedToBeResearched", 
@@ -57,7 +59,7 @@ namespace AllTheTweaks {
                 true
                 );
             _doesAmbrosiaNeedToBeResearched.OnValueChanged = newValue => {
-                OnConfigValueChanged(_doesAmbrosiaNeedToBeResearched, newValue);
+                OnConfigValueToggleableChanged(_doesAmbrosiaNeedToBeResearched, newValue);
             };
             _doesAmbrosiaNeedHydroponics = Settings.GetHandle<bool>(
                 "_doesAmbrosiaNeedHydroponics", 
@@ -66,7 +68,7 @@ namespace AllTheTweaks {
                 true
                 );
             _doesAmbrosiaNeedHydroponics.OnValueChanged = newValue => {
-                OnConfigValueChanged(_doesAmbrosiaNeedHydroponics, newValue);
+                OnConfigValueToggleableChanged(_doesAmbrosiaNeedHydroponics, newValue);
             }; 
             _reqAmbrosiaGrowLevel = Settings.GetHandle<int>(
                 "_reqAmbrosiaGrowLevel", 
@@ -75,14 +77,13 @@ namespace AllTheTweaks {
                 18,
                 Validators.IntRangeValidator(0, 20)
                 );
-            _reqAmbrosiaGrowLevel.OnValueChanged = newValue => {
-                OnConfigValueChanged(_reqAmbrosiaGrowLevel, newValue);
-            }; 
         }
 
-        private void OnConfigValueChanged<T>(SettingHandle<T> settingHandle, T newValue) {
+        private void OnConfigValueToggleableChanged<T>(SettingHandle<T> settingHandle, T newValue) {
             
         }
+        
+        #endregion
 
         public AllTheTweaks() {
         }
