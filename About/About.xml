@@ -2,9 +2,9 @@
 
 <ModMetaData>
 
-	<name>[RM] Fauna and Flora Tweaks</name>
+	<name>[RM] All the Tweaks</name>
 	<author>Robmart</author>
-	<packageId>Robmart.FaunaFloraTweaks</packageId>
+	<packageId>Robmart.AllTheTweaks</packageId>
 	<supportedVersions>
 		<li>1.2</li>
 	</supportedVersions>
@@ -16,6 +16,6 @@
 			<downloadUrl>https://github.com/AndroidQuazar/VanillaExpandedFramework</downloadUrl>
 		</li>
 	</modDependencies>
-	<description>A set of tweaks for the Fauna and Flora created purely for myself</description>
+	<description>A set of small tweaks created purely for myself</description>
 	
 </ModMetaData>

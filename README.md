@@ -1,2 +1,2 @@
-# FaunaFloraTweaks
-Rimworld mod that tweaks minor thing relating to fauna and flora.
+# All the Tweaks
+Rimworld mod that tweaks minor things.
