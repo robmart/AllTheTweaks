@@ -22,12 +22,12 @@
     </value>
   </Operation>
 	
-  <Operation Class="VFECore.PatchOperationToggable">
-    <enabled>False</enabled>
+  <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
+    <enabled>True</enabled>
     <mods>
       <li>Core</li>
     </mods>
-    <label>Make Thrumbos shearable</label>
+    <label>_canThrumbosGrowWool</label>
     <match Class="PatchOperationSequence">
       <operations>
         <li Class="PatchOperationConditional">
@@ -59,12 +59,12 @@
     </match>
   </Operation>
 	
-  <Operation Class="VFECore.PatchOperationToggable">
+  <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
     <enabled>True</enabled>
     <mods>
       <li>Core</li>
     </mods>
-    <label>Make Thrumbos milkable</label>
+    <label>_canThrumbosBeMilked</label>
     <match Class="PatchOperationSequence">
       <operations>
         <li Class="PatchOperationConditional">
