@@ -28,6 +28,8 @@ namespace AllTheTweaks {
                 );
             _canThrumbosBeMilked.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canThrumbosBeMilked, newValue);
+                if (!newValue)
+                    _canThrumbosBeMilked.Value = false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
             };
             _canThrumboMilkBeCheese = Settings.GetHandle<bool>(
                 "_canThrumboMilkBeCheese", 
@@ -38,7 +40,8 @@ namespace AllTheTweaks {
             _canThrumboMilkBeCheese.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canThrumboMilkBeCheese, newValue);
             };
-            _canThrumbosGrowWool = Settings.GetHandle<bool>(
+            _canThrumboMilkBeCheese.VisibilityPredicate = () => _canThrumbosBeMilked; //TODO: Only display if mod is loaded
+            _canThrumbosGrowWool = Settings.GetHandle<bool>( 
                 "_canThrumbosGrowWool", 
                 "_canThrumbosGrowWool_title".Translate(), 
                 "_canThrumbosGrowWool_desc".Translate(), 
