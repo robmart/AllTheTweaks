@@ -28,8 +28,11 @@ namespace AllTheTweaks {
                 );
             _canThrumbosBeMilked.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canThrumbosBeMilked, newValue);
-                if (newValue == false)
-                    _canThrumboMilkBeCheese.Value = false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
+                if (newValue == false) {
+                    _canThrumboMilkBeCheese.Value =
+                        false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
+                    _canThrumboMilkBeCheese.HasUnsavedChanges = true; //TODO: Value won't update until re-opening the settings menu
+                }
             };
             
             _canThrumboMilkBeCheese = Settings.GetHandle<bool>(
