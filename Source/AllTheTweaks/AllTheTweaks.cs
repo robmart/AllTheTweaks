@@ -28,9 +28,10 @@ namespace AllTheTweaks {
                 );
             _canThrumbosBeMilked.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canThrumbosBeMilked, newValue);
-                if (!newValue)
-                    _canThrumbosBeMilked.Value = false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
+                if (newValue == false)
+                    _canThrumboMilkBeCheese.Value = false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
             };
+            
             _canThrumboMilkBeCheese = Settings.GetHandle<bool>(
                 "_canThrumboMilkBeCheese", 
                 "_canThrumboMilkBeCheese_title".Translate(), 
@@ -41,6 +42,7 @@ namespace AllTheTweaks {
                 OnConfigValueToggleableChanged(_canThrumboMilkBeCheese, newValue);
             };
             _canThrumboMilkBeCheese.VisibilityPredicate = () => _canThrumbosBeMilked; //TODO: Only display if mod is loaded
+            
             _canThrumbosGrowWool = Settings.GetHandle<bool>( 
                 "_canThrumbosGrowWool", 
                 "_canThrumbosGrowWool_title".Translate(), 
@@ -50,6 +52,7 @@ namespace AllTheTweaks {
             _canThrumbosGrowWool.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canThrumbosGrowWool, newValue);
             };
+            
             _canAmbrosiaBeGrown = Settings.GetHandle<bool>(
                 "_canAmbrosiaBeGrown", 
                 "_canAmbrosiaBeGrown_title".Translate(), 
@@ -59,6 +62,7 @@ namespace AllTheTweaks {
             _canAmbrosiaBeGrown.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canAmbrosiaBeGrown, newValue);
             };
+            
             _doesAmbrosiaNeedToBeResearched = Settings.GetHandle<bool>(
                 "_doesAmbrosiaNeedToBeResearched", 
                 "_doesAmbrosiaNeedToBeResearched_title".Translate(), 
@@ -68,6 +72,7 @@ namespace AllTheTweaks {
             _doesAmbrosiaNeedToBeResearched.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_doesAmbrosiaNeedToBeResearched, newValue);
             };
+            
             _doesAmbrosiaNeedHydroponics = Settings.GetHandle<bool>(
                 "_doesAmbrosiaNeedHydroponics", 
                 "_doesAmbrosiaNeedHydroponics_title".Translate(), 
@@ -77,6 +82,7 @@ namespace AllTheTweaks {
             _doesAmbrosiaNeedHydroponics.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_doesAmbrosiaNeedHydroponics, newValue);
             }; 
+            
             _reqAmbrosiaGrowLevel = Settings.GetHandle<int>(
                 "_reqAmbrosiaGrowLevel", 
                 "_reqAmbrosiaGrowLevel_title".Translate(), 
