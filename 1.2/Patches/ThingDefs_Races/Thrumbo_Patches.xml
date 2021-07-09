@@ -7,21 +7,18 @@
       <nameOnNuzzleChance>1</nameOnNuzzleChance>
     </value>
   </Operation>
-	
   <Operation Class="PatchOperationAdd">
     <xpath>*/ThingDef[defName = "Thrumbo"]/race</xpath>
     <value>
       <manhunterOnTameFailChance>0</manhunterOnTameFailChance>
     </value>
   </Operation>
-	
   <Operation Class="PatchOperationReplace">
     <xpath>*/ThingDef[defName = "Thrumbo"]/race/wildness</xpath>
     <value>
       <wildness>0.9</wildness>
     </value>
   </Operation>
-	
   <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
     <enabled>True</enabled>
     <mods>
@@ -58,7 +55,6 @@
       </operations>
     </match>
   </Operation>
-	
   <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
     <enabled>True</enabled>
     <mods>

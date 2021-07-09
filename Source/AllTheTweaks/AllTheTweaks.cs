@@ -1,4 +1,8 @@
-﻿using AllTheTweaks.References;
+﻿using System.IO;
+using System.Xml;
+using AllTheTweaks.PatchOperation;
+using AllTheTweaks.References;
+using AllTheTweaks.Utilities;
 using HugsLib;
 using HugsLib.Settings;
 using Verse;
@@ -79,8 +83,48 @@ namespace AllTheTweaks {
                 );
         }
 
+        /// <summary>
+        /// Copied from VFECore
+        /// </summary>
+        /// <see cref="VFEGlobal.AddButton"/>
+        /// <param name="settingHandle"></param>
+        /// <param name="newValue"></param>
         private void OnConfigValueToggleableChanged(SettingHandle<bool> settingHandle, bool newValue) {
-            
+            var modContentPack = ModContentPack;
+            if (modContentPack == null) {
+                return;
+            }
+
+            foreach (Verse.PatchOperation patch in modContentPack.Patches) {
+                if (patch != null && patch is ATTPatchOperationToggleable operationToggable1) {
+                    var flag = false;
+                    for (var index = 0; index < operationToggable1.mods.Count; ++index) {
+                        if (ModLister.HasActiveModWithName(operationToggable1.mods[index])) {
+                            flag = true;
+                        }
+                        else {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    
+                    if (flag && operationToggable1.label == settingHandle.Name) {
+                        XmlDocument xmlDocument = new XmlDocument();
+                        xmlDocument.Load(operationToggable1.sourceFile);
+                        string xpath = "Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\" and label=\"" + operationToggable1.label + "\"]/enabled/text()";
+                        Logger.Warning(xmlDocument.SelectSingleNode(xpath).ToString());
+                        if (!newValue) {
+                            xmlDocument.SelectSingleNode(xpath).Value = "False";
+                            operationToggable1.enabled = false;
+                        }
+                        else {
+                            xmlDocument.SelectSingleNode(xpath).Value = "True";
+                            operationToggable1.enabled = true;
+                        }
+                        File.WriteAllText(operationToggable1.sourceFile, GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml));
+                    }
+                }
+            }
         }
         
         #endregion
