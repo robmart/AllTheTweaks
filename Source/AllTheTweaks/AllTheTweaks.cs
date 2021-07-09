@@ -79,7 +79,7 @@ namespace AllTheTweaks {
                 );
         }
 
-        private void OnConfigValueToggleableChanged<T>(SettingHandle<T> settingHandle, T newValue) {
+        private void OnConfigValueToggleableChanged(SettingHandle<bool> settingHandle, bool newValue) {
             
         }
         
