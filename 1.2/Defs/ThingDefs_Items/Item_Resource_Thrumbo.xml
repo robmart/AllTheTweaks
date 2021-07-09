@@ -14,11 +14,10 @@
       <MaxHitPoints>320</MaxHitPoints>
       <Flammability>0.32</Flammability>
       <DeteriorationRate>3.2</DeteriorationRate>
-      <StuffPower_Armor_Sharp>0.32</StuffPower_Armor_Sharp>
-      <StuffPower_Armor_Blunt>0.32</StuffPower_Armor_Blunt>
-      <StuffPower_Armor_Heat>0.32</StuffPower_Armor_Heat>
-      <StuffPower_Insulation_Cold>32</StuffPower_Insulation_Cold>
-      <StuffPower_Insulation_Heat>32</StuffPower_Insulation_Heat>
+      <StuffPower_Armor_Sharp>2.08</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.36</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>34</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>22</StuffPower_Insulation_Heat>    
     </statBases>
     <stuffProps>
       <color>(233,233,233)</color>
