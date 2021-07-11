@@ -1,4 +1,5 @@
-﻿using System.IO;
+using System.IO;
+using System.Linq;
 using System.Xml;
 using AllTheTweaks.PatchOperation;
 using AllTheTweaks.References;
@@ -53,7 +54,8 @@ namespace AllTheTweaks {
             _canThrumboMilkBeCheese.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canThrumboMilkBeCheese, newValue);
             };
-            _canThrumboMilkBeCheese.VisibilityPredicate = () => _canThrumbosBeMilked; //TODO: Only display if mod is loaded
+			_canThrumboMilkBeCheese.VisibilityPredicate = () =>
+				_canThrumbosBeMilked && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.VCE);
             
             _canThrumbosGrowWool = Settings.GetHandle<bool>( 
                 "_canThrumbosGrowWool", 
