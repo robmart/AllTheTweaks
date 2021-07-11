@@ -2,4 +2,10 @@
 <LanguageData>
   <_canThrumbosBeMilked_title>Can Thrumbos be milked?</_canThrumbosBeMilked_title>
   <_canThrumbosBeMilked_desc>Can Thrumbos be milked?</_canThrumbosBeMilked_desc>
+  
+  <_canThrumboMilkBeCheese_title>Can Thrumbo milk be made into cheese?</_canThrumboMilkBeCheese_title>
+  <_canThrumboMilkBeCheese_desc>Can Thrumbo milk be made into cheese? (Requires Vanilla Cooking Extended)</_canThrumboMilkBeCheese_desc>
+  
+  <_canThrumbosGrowWool_title>Can Thrumbos grow wool?</_canThrumbosGrowWool_title>
+  <_canThrumbosGrowWool_desc>Can Thrumbos grow wool? Will allow Thrumbos to be shaved for their wool like other animals.</_canThrumbosGrowWool_desc>
 </LanguageData>
