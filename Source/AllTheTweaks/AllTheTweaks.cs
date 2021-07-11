@@ -95,6 +95,7 @@ namespace AllTheTweaks {
 			);
 			_doesAmbrosiaNeedHydroponics.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesAmbrosiaNeedHydroponics, newValue);
+				OnHydroponicsNeededChanged(_doesAmbrosiaNeedHydroponics, newValue);
 			};
 
 			_reqAmbrosiaGrowLevel = Settings.GetHandle(
@@ -137,7 +138,6 @@ namespace AllTheTweaks {
 						string xpath =
 							"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\" and label=\"" +
 							operationToggable1.label + "\"]/enabled/text()";
-						Logger.Warning(xmlDocument.SelectSingleNode(xpath).ToString());
 						if (!newValue) {
 							xmlDocument.SelectSingleNode(xpath).Value = "False";
 							operationToggable1.enabled = false;
@@ -156,6 +156,39 @@ namespace AllTheTweaks {
 			}
 		}
 
+		private void OnHydroponicsNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
+			var modContentPack = ModContentPack;
+			if (modContentPack == null) {
+				return;
+			}
+
+			foreach (Verse.PatchOperation patch in modContentPack.Patches) {
+				if (patch != null && patch.sourceFile.Contains("Growable_Ambrosia.xml")) {
+					XmlDocument xmlDocument = new XmlDocument();
+					xmlDocument.Load(patch.sourceFile);
+
+					string xpath =
+						"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowTags";
+					
+					if (!newValue) {
+						var node = xmlDocument.CreateNode(XmlNodeType.Element, "li", null);
+						node.InnerText = "Ground";
+						xmlDocument.SelectSingleNode(xpath).InsertAfter(node, xmlDocument.SelectSingleNode(xpath + "/li"));
+					}
+					else {
+						var node = xmlDocument.SelectSingleNode(xpath).LastChild;
+						xmlDocument.SelectSingleNode(xpath).RemoveChild(node);
+					}
+					
+					File.WriteAllText(
+						patch.sourceFile,
+						GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
+					);
+					break;
+				}
+			}
+		}
+		
 		#endregion
 
 		public AllTheTweaks() {

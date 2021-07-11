@@ -9,23 +9,30 @@
     <match Class="PatchOperationSequence">
       <operations>
         <!-- Add the research -->
-        <li Class="PatchOperationAdd">
-          <success>Always</success>
-          <xpath>/Defs</xpath>
-          <value>
-            <ResearchProjectDef>
-              <defName>RMAmbrosiaResearch</defName>
-              <label>Ambrosia</label>
-              <description>Due to your now advanced scanning capabilities, you can figure out how to grow ambrosia. Ambrosia can only be grown using hydroponics.</description>
-              <baseCost>2500</baseCost>
-              <techLevel>Spacer</techLevel>
-              <researchViewX>10.00</researchViewX>
-              <researchViewY>0</researchViewY>
-              <prerequisites>
-                <li>Hydroponics</li>
-              </prerequisites>
-            </ResearchProjectDef>
-          </value>
+        <li Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
+          <enabled>True</enabled>
+          <mods>
+            <li>Core</li>
+          </mods>
+          <label>_doesAmbrosiaNeedToBeResearched</label>
+          <match Class="PatchOperationAdd">
+            <success>Always</success>
+            <xpath>/Defs</xpath>
+            <value>
+              <ResearchProjectDef>
+                <defName>RMAmbrosiaResearch</defName>
+                <label>Ambrosia</label>
+                <description>Due to your now advanced scanning capabilities, you can figure out how to grow ambrosia. Ambrosia can only be grown using hydroponics.</description>
+                <baseCost>2500</baseCost>
+                <techLevel>Spacer</techLevel>
+                <researchViewX>10.00</researchViewX>
+                <researchViewY>0</researchViewY>
+                <prerequisites>
+                  <li>Hydroponics</li>
+                </prerequisites>
+              </ResearchProjectDef>
+            </value>
+          </match>
         </li>
         <!-- Make them plantable -->
         <li Class="PatchOperationAdd">
