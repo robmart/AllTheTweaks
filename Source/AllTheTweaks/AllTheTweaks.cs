@@ -19,6 +19,8 @@ namespace AllTheTweaks {
         private SettingHandle<bool> _doesAmbrosiaNeedToBeResearched;
         private SettingHandle<bool> _doesAmbrosiaNeedHydroponics;
         private SettingHandle<int> _reqAmbrosiaGrowLevel;
+
+        private bool _oldCheeseValue;
         public override void DefsLoaded() {
             _canThrumbosBeMilked = Settings.GetHandle<bool>(
                 "_canThrumbosBeMilked", 
@@ -28,10 +30,17 @@ namespace AllTheTweaks {
                 );
             _canThrumbosBeMilked.OnValueChanged = newValue => {
                 OnConfigValueToggleableChanged(_canThrumbosBeMilked, newValue);
-                if (newValue == false) {
-                    _canThrumboMilkBeCheese.Value =
-                        false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
-                    _canThrumboMilkBeCheese.HasUnsavedChanges = true; //TODO: Value won't update until re-opening the settings menu
+                switch (newValue) {
+                    case false:
+                        _oldCheeseValue = _canThrumboMilkBeCheese;
+                        _canThrumboMilkBeCheese.Value =
+                            false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
+                        _canThrumboMilkBeCheese.HasUnsavedChanges = true; //TODO: Value won't update until re-opening the settings menu
+                        break;
+                    case true:
+                        _canThrumboMilkBeCheese.Value = _oldCheeseValue; 
+                        _canThrumboMilkBeCheese.HasUnsavedChanges = true; //TODO: Value won't update until re-opening the settings menu
+                        break;
                 }
             };
             

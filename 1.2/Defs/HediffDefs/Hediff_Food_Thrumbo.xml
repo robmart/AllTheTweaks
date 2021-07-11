@@ -11,12 +11,12 @@
         <isBad>false</isBad>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>-0.45</severityPerDay>
+                <severityPerDay>-0.45</severityPerDay> <!--TODO: Edit this via config-->
             </li>
         </comps>
         <stages>
             <li>
-                <painFactor>0.8</painFactor>
+                <painFactor>0.8</painFactor> <!--TODO: Edit this via config-->
                 <capMods>
                     <li>
                         <capacity>BloodFiltration</capacity>
