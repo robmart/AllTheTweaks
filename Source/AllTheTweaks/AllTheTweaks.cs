@@ -35,11 +35,11 @@ namespace AllTheTweaks {
                         _oldCheeseValue = _canThrumboMilkBeCheese;
                         _canThrumboMilkBeCheese.Value =
                             false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
-                        _canThrumboMilkBeCheese.HasUnsavedChanges = true; //TODO: Value won't update until re-opening the settings menu
+                        _canThrumboMilkBeCheese.HasUnsavedChanges = true; 
                         break;
                     case true:
                         _canThrumboMilkBeCheese.Value = _oldCheeseValue; 
-                        _canThrumboMilkBeCheese.HasUnsavedChanges = true; //TODO: Value won't update until re-opening the settings menu
+                        _canThrumboMilkBeCheese.HasUnsavedChanges = true;
                         break;
                 }
             };
