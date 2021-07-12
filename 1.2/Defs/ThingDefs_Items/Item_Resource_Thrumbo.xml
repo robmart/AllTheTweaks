@@ -9,26 +9,26 @@
       <color>(233,233,233)</color>
     </graphicData>
     <statBases>
-      <Mass>0.032</Mass>
+      <Mass>0.032</Mass> <!--TODO: Edit this via config-->
       <MarketValue>23.3</MarketValue>
       <MaxHitPoints>320</MaxHitPoints>
       <Flammability>0.32</Flammability>
       <DeteriorationRate>3.2</DeteriorationRate>
-      <StuffPower_Armor_Sharp>0.32</StuffPower_Armor_Sharp>
-      <StuffPower_Armor_Blunt>0.32</StuffPower_Armor_Blunt>
-      <StuffPower_Armor_Heat>0.32</StuffPower_Armor_Heat>
-      <StuffPower_Insulation_Cold>32</StuffPower_Insulation_Cold>
-      <StuffPower_Insulation_Heat>32</StuffPower_Insulation_Heat>
+      <StuffPower_Armor_Sharp>2.08</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.36</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>34</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>22</StuffPower_Insulation_Heat>    
     </statBases>
     <stuffProps>
       <color>(233,233,233)</color>
-      <commonality>0.32</commonality>
+      <commonality>0.025</commonality> <!--TODO: Edit this via config-->
       <statFactors>
         <Flammability>0.32</Flammability>
         <MarketValue>1.32</MarketValue>
         <MaxHitPoints>3.2</MaxHitPoints>
 		<WorkToBuild>3.2</WorkToBuild>
 		<WorkToMake>3.2</WorkToMake>
+        <Beauty>8</Beauty>
       </statFactors>
     </stuffProps>
   </ThingDef>
@@ -44,7 +44,7 @@
     <rotatable>false</rotatable>
     <socialPropernessMatters>true</socialPropernessMatters>
     <statBases>
-      <Mass>0.5</Mass>
+      <Mass>0.5</Mass> <!--TODO: Edit this via config-->
       <Nutrition>1.6</Nutrition>
       <MarketValue>200</MarketValue>
       <MaxHitPoints>100</MaxHitPoints>
