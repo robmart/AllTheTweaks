@@ -106,6 +106,9 @@ namespace AllTheTweaks {
 				18,
 				Validators.IntRangeValidator(0, 20)
 			);
+			_reqAmbrosiaGrowLevel.OnValueChanged = newValue => {
+				OnGrowLevelNeededChanged(_reqAmbrosiaGrowLevel, newValue);
+			};
 		}
 
 		/// <summary>
@@ -213,6 +216,31 @@ namespace AllTheTweaks {
 						var node = xmlDocument.SelectSingleNode(xpath).LastChild;
 						xmlDocument.SelectSingleNode(xpath).RemoveChild(node);
 					}
+					
+					File.WriteAllText(
+						patch.sourceFile,
+						GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
+					);
+					break;
+				}
+			}
+		}
+		
+		private void OnGrowLevelNeededChanged(SettingHandle<int> settingHandle, int newValue) {
+			var modContentPack = ModContentPack;
+			if (modContentPack == null) {
+				return;
+			}
+
+			foreach (Verse.PatchOperation patch in modContentPack.Patches) {
+				if (patch != null && patch.sourceFile.Contains("Growable_Ambrosia.xml")) {
+					XmlDocument xmlDocument = new XmlDocument();
+					xmlDocument.Load(patch.sourceFile);
+
+					string xpath =
+						"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowMinSkill/text()";
+
+					xmlDocument.SelectSingleNode(xpath).Value = newValue.ToString();
 					
 					File.WriteAllText(
 						patch.sourceFile,
