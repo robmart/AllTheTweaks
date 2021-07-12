@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Xml;
 using AllTheTweaks.PatchOperation;
@@ -227,28 +228,19 @@ namespace AllTheTweaks {
 		}
 		
 		private void OnGrowLevelNeededChanged(SettingHandle<int> settingHandle, int newValue) {
-			var modContentPack = ModContentPack;
-			if (modContentPack == null) {
-				return;
-			}
+			var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, "Growable_Ambrosia.xml");
+			var xmlDocument = dictionary.First().Key;
+			var patch = dictionary.First().Value;
 
-			foreach (Verse.PatchOperation patch in modContentPack.Patches) {
-				if (patch != null && patch.sourceFile.Contains("Growable_Ambrosia.xml")) {
-					XmlDocument xmlDocument = new XmlDocument();
-					xmlDocument.Load(patch.sourceFile);
-
-					string xpath =
+			string xpath =
 						"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowMinSkill/text()";
 
-					xmlDocument.SelectSingleNode(xpath).Value = newValue.ToString();
+			xmlDocument.SelectSingleNode(xpath).Value = newValue.ToString();
 					
-					File.WriteAllText(
-						patch.sourceFile,
-						GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
-					);
-					break;
-				}
-			}
+			File.WriteAllText(
+				patch.sourceFile,
+				GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
+			);
 		}
 		
 		#endregion
