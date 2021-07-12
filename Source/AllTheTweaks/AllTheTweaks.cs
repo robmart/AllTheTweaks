@@ -85,6 +85,7 @@ namespace AllTheTweaks {
 			);
 			_doesAmbrosiaNeedToBeResearched.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesAmbrosiaNeedToBeResearched, newValue);
+				OnResearchNeededChanged(_doesAmbrosiaNeedToBeResearched, newValue);
 			};
 
 			_doesAmbrosiaNeedHydroponics = Settings.GetHandle(
@@ -156,6 +157,39 @@ namespace AllTheTweaks {
 			}
 		}
 
+		private void OnResearchNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
+			var modContentPack = ModContentPack;
+			if (modContentPack == null) {
+				return;
+			}
+
+			foreach (Verse.PatchOperation patch in modContentPack.Patches) {
+				if (patch != null && patch.sourceFile.Contains("Growable_Ambrosia.xml")) {
+					XmlDocument xmlDocument = new XmlDocument();
+					xmlDocument.Load(patch.sourceFile);
+
+					string xpath =
+						"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowResearchPrerequisites";
+					
+					if (!newValue) {
+						var node = xmlDocument.SelectSingleNode(xpath).LastChild;
+						xmlDocument.SelectSingleNode(xpath).RemoveChild(node);
+					}
+					else {
+						var node = xmlDocument.CreateNode(XmlNodeType.Element, "li", null);
+						node.InnerText = "ATTAmbrosiaResearch";
+						xmlDocument.SelectSingleNode(xpath).InsertAfter(node, xmlDocument.SelectSingleNode(xpath + "/li"));
+					}
+					
+					File.WriteAllText(
+						patch.sourceFile,
+						GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
+					);
+					break;
+				}
+			}
+		}
+		
 		private void OnHydroponicsNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
 			var modContentPack = ModContentPack;
 			if (modContentPack == null) {
