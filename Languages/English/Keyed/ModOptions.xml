@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <_canThrumbosBeMilked_title>Can Thrumbos be milked?</_canThrumbosBeMilked_title>
+  <_canThrumbosBeMilked_desc>Can Thrumbos be milked?</_canThrumbosBeMilked_desc>
+  
+  <_canThrumboMilkBeCheese_title>Can Thrumbo milk be made into cheese?</_canThrumboMilkBeCheese_title>
+  <_canThrumboMilkBeCheese_desc>Can Thrumbo milk be made into cheese? (Requires Vanilla Cooking Extended)</_canThrumboMilkBeCheese_desc>
+  
+  <_canThrumbosGrowWool_title>Can Thrumbos grow wool?</_canThrumbosGrowWool_title>
+  <_canThrumbosGrowWool_desc>Can Thrumbos grow wool? Will allow Thrumbos to be shaved for their wool like other animals.</_canThrumbosGrowWool_desc>
+  
+  <_canAmbrosiaBeGrown_title>Can ambrosia be grown?</_canAmbrosiaBeGrown_title>
+  <_canAmbrosiaBeGrown_desc>Can ambrosia be grown? Unless set otherwise, ambrosia can only be grown in hydroponics and after completing the ambrosia research.</_canAmbrosiaBeGrown_desc>
+  
+  <_doesAmbrosiaNeedToBeResearched_title>Does ambrosia need research to grow?</_doesAmbrosiaNeedToBeResearched_title>
+  <_doesAmbrosiaNeedToBeResearched_desc>Does ambrosia need research to grow? If this is set to false the research will be removed and won't be needed to grow ambrosia.</_doesAmbrosiaNeedToBeResearched_desc>
+  
+  <_doesAmbrosiaNeedHydroponics_title>Does ambrosia need hydroponics to grow?</_doesAmbrosiaNeedHydroponics_title>
+  <_doesAmbrosiaNeedHydroponics_desc>Does ambrosia need hydroponics to grow? If false ambrosia can also be grown on the ground.</_doesAmbrosiaNeedHydroponics_desc>
+  
+  <_reqAmbrosiaGrowLevel_title>The Plants level needed to grow ambrosia</_reqAmbrosiaGrowLevel_title>
+  <_reqAmbrosiaGrowLevel_desc>The Plants level your pawn will need to grow ambrosia.</_reqAmbrosiaGrowLevel_desc>
+</LanguageData>

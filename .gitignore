@@ -356,8 +356,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-1.2/Assemblies/net472/
 
 *.sln
 
 *.csproj
+
+Source/.idea/.idea.Source/.idea/
