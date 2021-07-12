@@ -33,9 +33,7 @@ namespace AllTheTweaks.Utilities {
 				if (patch == null || !patch.sourceFile.Contains(fileName)) continue;
 				var xmlDocument = new XmlDocument();
 				xmlDocument.Load(patch.sourceFile);
-				var dictionary = new Dictionary<XmlDocument, Verse.PatchOperation>();
-				dictionary.Add(xmlDocument, patch);
-				return dictionary;
+				return new Dictionary<XmlDocument, Verse.PatchOperation> {{xmlDocument, patch}};
 			}
 
 			throw new ArgumentException("No patch file by that name found");
