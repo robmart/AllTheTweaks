@@ -162,69 +162,49 @@ namespace AllTheTweaks {
 		}
 
 		private void OnResearchNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
-			var modContentPack = ModContentPack;
-			if (modContentPack == null) {
-				return;
-			}
+			var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, "Growable_Ambrosia.xml");
+			var xmlDocument = dictionary.First().Key;
+			var patch = dictionary.First().Value;
 
-			foreach (Verse.PatchOperation patch in modContentPack.Patches) {
-				if (patch != null && patch.sourceFile.Contains("Growable_Ambrosia.xml")) {
-					XmlDocument xmlDocument = new XmlDocument();
-					xmlDocument.Load(patch.sourceFile);
-
-					string xpath =
-						"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowResearchPrerequisites";
-					
-					if (!newValue) {
-						var node = xmlDocument.SelectSingleNode(xpath).LastChild;
-						xmlDocument.SelectSingleNode(xpath).RemoveChild(node);
-					}
-					else {
-						var node = xmlDocument.CreateNode(XmlNodeType.Element, "li", null);
-						node.InnerText = "ATTAmbrosiaResearch";
-						xmlDocument.SelectSingleNode(xpath).InsertAfter(node, xmlDocument.SelectSingleNode(xpath + "/li"));
-					}
-					
-					File.WriteAllText(
-						patch.sourceFile,
-						GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
-					);
-					break;
-				}
+			const string xpath = "Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowResearchPrerequisites";
+			
+			if (!newValue) {
+				var node = xmlDocument.SelectSingleNode(xpath).LastChild;
+				xmlDocument.SelectSingleNode(xpath).RemoveChild(node);
 			}
+			else {
+				var node = xmlDocument.CreateNode(XmlNodeType.Element, "li", null);
+				node.InnerText = "ATTAmbrosiaResearch";
+				xmlDocument.SelectSingleNode(xpath).InsertAfter(node, xmlDocument.SelectSingleNode(xpath + "/li"));
+			}
+			
+			File.WriteAllText(
+				patch.sourceFile,
+				GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
+			);
 		}
 		
 		private void OnHydroponicsNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
-			var modContentPack = ModContentPack;
-			if (modContentPack == null) {
-				return;
-			}
+				var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, "Growable_Ambrosia.xml");
+				var xmlDocument = dictionary.First().Key;
+				var patch = dictionary.First().Value;
 
-			foreach (Verse.PatchOperation patch in modContentPack.Patches) {
-				if (patch != null && patch.sourceFile.Contains("Growable_Ambrosia.xml")) {
-					XmlDocument xmlDocument = new XmlDocument();
-					xmlDocument.Load(patch.sourceFile);
-
-					string xpath =
-						"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowTags";
-					
-					if (!newValue) {
-						var node = xmlDocument.CreateNode(XmlNodeType.Element, "li", null);
-						node.InnerText = "Ground";
-						xmlDocument.SelectSingleNode(xpath).InsertAfter(node, xmlDocument.SelectSingleNode(xpath + "/li"));
-					}
-					else {
-						var node = xmlDocument.SelectSingleNode(xpath).LastChild;
-						xmlDocument.SelectSingleNode(xpath).RemoveChild(node);
-					}
-					
-					File.WriteAllText(
-						patch.sourceFile,
-						GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
-					);
-					break;
+				const string xpath = "Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowTags";
+				
+				if (!newValue) {
+					var node = xmlDocument.CreateNode(XmlNodeType.Element, "li", null);
+					node.InnerText = "Ground";
+					xmlDocument.SelectSingleNode(xpath).InsertAfter(node, xmlDocument.SelectSingleNode(xpath + "/li"));
 				}
-			}
+				else {
+					var node = xmlDocument.SelectSingleNode(xpath).LastChild;
+					xmlDocument.SelectSingleNode(xpath).RemoveChild(node);
+				}
+				
+				File.WriteAllText(
+					patch.sourceFile,
+					GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
+				);
 		}
 		
 		private void OnGrowLevelNeededChanged(SettingHandle<int> settingHandle, int newValue) {
@@ -232,8 +212,7 @@ namespace AllTheTweaks {
 			var xmlDocument = dictionary.First().Key;
 			var patch = dictionary.First().Value;
 
-			string xpath =
-						"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowMinSkill/text()";
+			const string xpath = "Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowMinSkill/text()";
 
 			xmlDocument.SelectSingleNode(xpath).Value = newValue.ToString();
 					
