@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef Name="ResourceBaseMeatSubstitute" Abstract="True">
+        <thingClass>ThingWithComps</thingClass>
+        <label>unspecified resource</label>
+        <category>Item</category>
+        <resourceReadoutPriority>Middle</resourceReadoutPriority>
+        <useHitPoints>true</useHitPoints>
+        <selectable>true</selectable>
+        <altitudeLayer>Item</altitudeLayer>
+        <stackLimit>75</stackLimit>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+        </comps>
+        <alwaysHaulable>true</alwaysHaulable>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <rotatable>false</rotatable>
+        <pathCost>15</pathCost>
+    </ThingDef>
+    
+    <ThingDef ParentName="ResourceBaseMeatSubstitute">
+        <defName>RawPortobello</defName>
+        <label>Portobello Mushroom</label>
+        <description>A quite common type of mushroom. Thanks to their large size and meaty flavor, they can be swapped in for meat on pretty much anything. Can be eaten raw.</description>
+        <graphicData>
+            <texPath>Things/Vegetables/RawPortobello</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <DeteriorationRate>10</DeteriorationRate>
+            <Mass>0.03</Mass>
+            <Nutrition>0.075</Nutrition>
+            <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
+            <MarketValue>6</MarketValue>
+        </statBases>
+        <ingestible>
+            <preferability>RawTasty</preferability>
+            <tasteThought></tasteThought>
+            <foodType>VegetableOrFruit</foodType>
+            <ingestEffect>EatVegetarian</ingestEffect>
+            <ingestSound>RawVegetable_Eat</ingestSound>
+        </ingestible>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>20</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+        </comps>
+        <tickerType>Rare</tickerType>
+        <thingCategories>
+            <li>MeatRaw</li>
+        </thingCategories>
+    </ThingDef>
+</Defs>
