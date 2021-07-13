@@ -4,7 +4,7 @@
         <mods>
             <li>Android tiers</li>
         </mods>
-        <label>_canT5BeCrafted</label>
+        <label>_canT5BeCrafted</label> <!-- TODO: Config setting for this -->
         <match Class="PatchOperationSequence">
             <success>Always</success>
             <operations>
@@ -36,7 +36,7 @@
                             <jobString>Making Android</jobString>
                             <allowMixingIngredients>false</allowMixingIngredients>
                             <skillRequirements>
-                                <Crafting>18</Crafting>
+                                <Crafting>18</Crafting> <!-- TODO: Config setting for this -->
                             </skillRequirements>
                             <ingredients>
                                 <li>
@@ -45,7 +45,7 @@
                                             <li>Plasteel</li>
                                         </thingDefs>
                                     </filter>
-                                    <count>250</count>
+                                    <count>250</count> <!-- TODO: Config setting for this -->
                                 </li>
                                 <li>
                                     <filter>
@@ -53,7 +53,7 @@
                                             <li>ComponentSpacer</li>
                                         </thingDefs>
                                     </filter>
-                                    <count>30</count>
+                                    <count>30</count> <!-- TODO: Config setting for this -->
                                 </li>
                                 <li>
                                     <filter>
@@ -61,7 +61,7 @@
                                             <li>Uranium</li>
                                         </thingDefs>
                                     </filter>
-                                    <count>180</count>
+                                    <count>180</count> <!-- TODO: Config setting for this -->
                                 </li>
                                 <li>
                                     <filter>
@@ -69,7 +69,7 @@
                                             <li>AIPersonaCore</li>
                                         </thingDefs>
                                     </filter>
-                                    <count>4</count>
+                                    <count>4</count> <!-- TODO: Config setting for this -->
                                 </li>
                                 <li>
                                     <filter>
@@ -77,14 +77,14 @@
                                             <li>Gold</li>
                                         </thingDefs>
                                     </filter>
-                                    <count>16</count>
+                                    <count>16</count> <!-- TODO: Config setting for this -->
                                 </li>
                             </ingredients>
                             <products>
                                 <T5AndroidGeneratorAI>1</T5AndroidGeneratorAI>
                             </products>
-                            <researchPrerequisite>T4Androids</researchPrerequisite>
-                            <workAmount>50000</workAmount>
+                            <researchPrerequisite>T4Androids</researchPrerequisite> <!-- TODO: T5 research (optionally only a T5 can research it) --> <!-- TODO: Config setting for this -->
+                            <workAmount>50000</workAmount> <!-- TODO: Config setting for this -->
                             <unfinishedThingDef>UnfinishedAndroid</unfinishedThingDef>
                             <workSkill>Crafting</workSkill>
                             <effectWorking>Repair</effectWorking>
