@@ -1,0 +1,102 @@
+<Patch>
+    <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
+        <enabled>True</enabled>
+        <mods>
+            <li>Android tiers</li>
+        </mods>
+        <label>_canT5BeCrafted</label>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- Craftable T5 Android -->
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="BuildingCreatorBase">
+                            <defName>T5AndroidGeneratorAI</defName>
+                            <label>T5 Android</label>
+                            <comps>
+                                <li Class="MOARANDROIDS.SpawnerCompProperties_GenericSpawner">
+                                    <compClass>MOARANDROIDS.CompAndroidSpawnerGeneric</compClass>
+                                    <Pawnkind>AndroidT5Colonist</Pawnkind>
+                                </li>
+                            </comps>
+                        </ThingDef>                    
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <success>Always</success>
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <RecipeDef>
+                            <defName>CreateT5Android</defName>
+                            <label>Create T5 Android</label>
+                            <description>Create a blank T5 Android from Plasteel, Gold and advanced components.</description>
+                            <jobString>Making Android</jobString>
+                            <allowMixingIngredients>false</allowMixingIngredients>
+                            <skillRequirements>
+                                <Crafting>18</Crafting>
+                            </skillRequirements>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Plasteel</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>250</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>ComponentSpacer</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>30</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Uranium</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>180</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AIPersonaCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>4</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gold</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>16</count>
+                                </li>
+                            </ingredients>
+                            <products>
+                                <T5AndroidGeneratorAI>1</T5AndroidGeneratorAI>
+                            </products>
+                            <researchPrerequisite>T4Androids</researchPrerequisite>
+                            <workAmount>50000</workAmount>
+                            <unfinishedThingDef>UnfinishedAndroid</unfinishedThingDef>
+                            <workSkill>Crafting</workSkill>
+                            <effectWorking>Repair</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+                            <recipeUsers>
+                                <li>AndroidProductionVat</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
