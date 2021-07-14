@@ -27,6 +27,7 @@ namespace AllTheTweaks {
 		private SettingHandle<int> _t5CraftPlasteel;
 		private SettingHandle<int> _t5CraftComponentSpacer;
 		private SettingHandle<int> _t5CraftUranium;
+		private SettingHandle<int> _t5CraftAIPersonaCore;
 
 		private bool _oldCheeseValue; //TODO: Should be semi-permanent, probably via a hidden SettingHandle
 		public override void DefsLoaded() {
@@ -184,6 +185,18 @@ namespace AllTheTweaks {
 			_t5CraftUranium.SpinnerIncrement = 20;
 			_t5CraftUranium.OnValueChanged = newValue => {
 				OnIntValueChanged(_t5CraftUranium, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"Uranium\"]/count/text()");
+			};
+			_t5CraftAIPersonaCore = Settings.GetHandle(
+				"_t5CraftAIPersonaCore",
+				"_t5CraftAIPersonaCore_title".Translate(),
+				"_t5CraftAIPersonaCore_desc".Translate(),
+				4,
+				Validators.IntRangeValidator(0, 20)
+			);
+			_t5CraftAIPersonaCore.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
+			_t5CraftAIPersonaCore.SpinnerIncrement = 2;
+			_t5CraftAIPersonaCore.OnValueChanged = newValue => {
+				OnIntValueChanged(_t5CraftAIPersonaCore, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"AIPersonaCore\"]/count/text()");
 			};
 		}
 

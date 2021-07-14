@@ -70,7 +70,6 @@
                     </thingDefs>
                   </filter>
                   <count>4</count>
-                  <!-- TODO: Config setting for this -->
                 </li>
                 <li>
                   <filter>
