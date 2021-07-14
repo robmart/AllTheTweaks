@@ -11,7 +11,6 @@
       <value>
         <ResearchProjectDef>
           <defName>ATTT5Androids</defName>
-          <!-- TODO: Optionally only T5 should be able to research this -->
           <label>T5 androids</label>
           <tab>AtlasAndroids</tab>
           <description>Research how to develop the ultimate android, a version superior to event the T4. Allows the construction of the T5 Android.</description>
@@ -116,7 +115,6 @@
               </products>
               <researchPrerequisite>ATTT5Androids</researchPrerequisite>
               <workAmount>50000</workAmount>
-              <!-- TODO: Config setting for this -->
               <unfinishedThingDef>UnfinishedAndroid</unfinishedThingDef>
               <workSkill>Crafting</workSkill>
               <effectWorking>Repair</effectWorking>

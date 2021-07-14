@@ -31,6 +31,7 @@ namespace AllTheTweaks {
 		private SettingHandle<int> _t5CraftGold;
 		private SettingHandle<bool> _doesT5CraftingNeedResearch;
 		private SettingHandle<bool> _doesT5ResearchNeedT5;
+		private SettingHandle<int> _t5CraftWorkAmount;
 
 		private SettingHandle<bool> _oldCheeseValue; 
 		private SettingHandle<bool> _oldDoesT5CraftingNeedResearch; 
@@ -279,6 +280,19 @@ namespace AllTheTweaks {
 			_doesT5ResearchNeedT5.VisibilityPredicate = () => _canT5BeCrafted && _doesT5CraftingNeedResearch && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_doesT5ResearchNeedT5.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesT5ResearchNeedT5, newValue);
+			};
+			
+			_t5CraftWorkAmount = Settings.GetHandle(
+				"_t5CraftWorkAmount",
+				"_t5CraftWorkAmount_title".Translate(),
+				"_t5CraftWorkAmount_desc".Translate(),
+				50000,
+				Validators.IntRangeValidator(0, 100000)
+			);
+			_t5CraftWorkAmount.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
+			_t5CraftWorkAmount.SpinnerIncrement = 10000;
+			_t5CraftWorkAmount.OnValueChanged = newValue => {
+				OnIntValueChanged(_t5CraftWorkAmount, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/workAmount/text()");
 			};
 		}
 
