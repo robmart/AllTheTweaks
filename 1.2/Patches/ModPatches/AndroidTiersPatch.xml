@@ -37,7 +37,6 @@
               <allowMixingIngredients>false</allowMixingIngredients>
               <skillRequirements>
                 <Crafting>18</Crafting>
-                <!-- TODO: Config setting for this -->
               </skillRequirements>
               <ingredients>
                 <li>
