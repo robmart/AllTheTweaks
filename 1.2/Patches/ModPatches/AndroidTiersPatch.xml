@@ -54,7 +54,6 @@
                     </thingDefs>
                   </filter>
                   <count>30</count>
-                  <!-- TODO: Config setting for this -->
                 </li>
                 <li>
                   <filter>

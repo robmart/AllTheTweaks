@@ -25,6 +25,7 @@ namespace AllTheTweaks {
 		private SettingHandle<bool> _doesT5CraftingNeedT5;
 		private SettingHandle<int> _reqT5CraftLevel;
 		private SettingHandle<int> _t5CraftPlasteel;
+		private SettingHandle<int> _t5CraftComponentSpacer;
 
 		private bool _oldCheeseValue;
 		public override void DefsLoaded() {
@@ -154,6 +155,17 @@ namespace AllTheTweaks {
 			_t5CraftPlasteel.SpinnerIncrement = 25;
 			_t5CraftPlasteel.OnValueChanged = newValue => {
 				OnIntValueChanged(_t5CraftPlasteel, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"Plasteel\"]/count/text()");
+			};
+			_t5CraftComponentSpacer = Settings.GetHandle(
+				"_t5CraftComponentSpacer",
+				"_t5CraftComponentSpacer_title".Translate(),
+				"_t5CraftComponentSpacer_desc".Translate(),
+				30,
+				Validators.IntRangeValidator(0, 100)
+			);
+			_t5CraftComponentSpacer.SpinnerIncrement = 5;
+			_t5CraftComponentSpacer.OnValueChanged = newValue => {
+				OnIntValueChanged(_t5CraftComponentSpacer, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"ComponentSpacer\"]/count/text()");
 			};
 		}
 
