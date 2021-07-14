@@ -21,14 +21,12 @@ namespace AllTheTweaks.Settings {
 			_categorySetting.CustomDrawerFullWidth = CustomDrawerFullWidth;
 			Categories.Add(this);
 		}
-
-		/// <summary>
-		/// Most of this code was taken from HugsLib
-		/// </summary>
-		/// <param name="rect"></param>
-		/// <returns></returns>
+		
 		private bool CustomDrawerFullWidth(Rect rect) {
 			Widgets.Label(rect, _categorySetting.Title);
+			if (Widgets.ButtonText(
+				new Rect(new Vector2(rect.width - 53, rect.position.y - 1), new Vector2(56 - 2, rect.height + 3)),
+				Value ? "ATT_Open".Translate() : "ATT_Close".Translate())) Value = !Value;
 			return false;
 		}
 
