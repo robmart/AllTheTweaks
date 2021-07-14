@@ -20,4 +20,37 @@
   
   <_reqAmbrosiaGrowLevel_title>The Plants level needed to grow ambrosia</_reqAmbrosiaGrowLevel_title>
   <_reqAmbrosiaGrowLevel_desc>The Plants level your pawn will need to grow ambrosia.</_reqAmbrosiaGrowLevel_desc>
+  
+  <_canT5BeCrafted_title>Can T5 androids be crafted?</_canT5BeCrafted_title>
+  <_canT5BeCrafted_desc>Can T5 androids be crafted? (Requires Android Tiers)</_canT5BeCrafted_desc>
+  
+  <_doesT5CraftingNeedT5_title>Can only T5 craft T5s?</_doesT5CraftingNeedT5_title>
+  <_doesT5CraftingNeedT5_desc>If true only a T5 can craft other T5s.</_doesT5CraftingNeedT5_desc>
+  
+  <_reqT5CraftLevel_title>The Crafting level needed to craft T5s</_reqT5CraftLevel_title>
+  <_reqT5CraftLevel_desc>The Crafting level your pawn will need to craft T5 androids.</_reqT5CraftLevel_desc>
+  
+  <_t5CraftPlasteel_title>T5 plasteel T5 requirement</_t5CraftPlasteel_title>
+  <_t5CraftPlasteel_desc>How much plasteel is needed to craft a T5.</_t5CraftPlasteel_desc>
+  
+  <_t5CraftComponentSpacer_title>Advanced component T5 requirement</_t5CraftComponentSpacer_title>
+  <_t5CraftComponentSpacer_desc>How many advanced components are needed to craft a T5.</_t5CraftComponentSpacer_desc>
+  
+  <_t5CraftUranium_title>Uranium T5 requirement</_t5CraftUranium_title>
+  <_t5CraftUranium_desc>How much uranium is needed to craft a T5.</_t5CraftUranium_desc>
+  
+  <_t5CraftAIPersonaCore_title>AI persona core T5 requirement</_t5CraftAIPersonaCore_title>
+  <_t5CraftAIPersonaCore_desc>How many AI persona cores are needed to craft a T5.</_t5CraftAIPersonaCore_desc>
+  
+  <_t5CraftGold_title>Gold T5 requirement</_t5CraftGold_title>
+  <_t5CraftGold_desc>How much gold is needed to craft a T5.</_t5CraftGold_desc>
+  
+  <_doesT5CraftingNeedResearch_title>Does crafting T5 need research?</_doesT5CraftingNeedResearch_title>
+  <_doesT5CraftingNeedResearch_desc>If true crafting a T5 will require the T5 research, if false it will only require T4 research.</_doesT5CraftingNeedResearch_desc>
+  
+  <_doesT5ResearchNeedT5_title>Does researching T5 need a T5?</_doesT5ResearchNeedT5_title>
+  <_doesT5ResearchNeedT5_desc>If true only a T5 can research the T5 crafting.</_doesT5ResearchNeedT5_desc>
+  
+  <_t5CraftWorkAmount_title>T5 crafting work amount</_t5CraftWorkAmount_title>
+  <_t5CraftWorkAmount_desc>The amount of work required to craft a T5 android.</_t5CraftWorkAmount_desc>
 </LanguageData>
