@@ -22,6 +22,7 @@ namespace AllTheTweaks {
 		private SettingHandle<bool> _doesAmbrosiaNeedHydroponics;
 		private SettingHandle<int> _reqAmbrosiaGrowLevel;
 		private SettingHandle<bool> _canT5BeCrafted;
+		private SettingHandle<bool> _doesT5CraftingNeedT5;
 
 		private bool _oldCheeseValue;
 		public override void DefsLoaded() {
@@ -120,6 +121,16 @@ namespace AllTheTweaks {
 			);
 			_canT5BeCrafted.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_canT5BeCrafted, newValue);
+			};
+			
+			_doesT5CraftingNeedT5 = Settings.GetHandle(
+				"_doesT5CraftingNeedT5",
+				"_doesT5CraftingNeedT5_title".Translate(),
+				"_doesT5CraftingNeedT5_desc".Translate(),
+				true
+			);
+			_doesT5CraftingNeedT5.OnValueChanged = newValue => {
+				OnConfigValueToggleableChanged(_doesT5CraftingNeedT5, newValue);
 			};
 		}
 

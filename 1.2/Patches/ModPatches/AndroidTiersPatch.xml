@@ -31,7 +31,6 @@
           <value>
             <RecipeDef>
               <defName>CreateT5Android</defName>
-                <!-- TODO: Optionally only a T5 can craft another T5 -->
               <label>Create T5 Android</label>
               <description>Create a blank T5 Android from Plasteel, Gold and advanced components.</description>
               <jobString>Making Android</jobString>
@@ -105,6 +104,22 @@
               </recipeUsers>
             </RecipeDef>
           </value>
+        </li>
+        <li Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
+          <enabled>True</enabled>
+          <mods>
+            <li>Android tiers</li>
+          </mods>
+          <label>_doesT5CraftingNeedT5</label>
+          <match Class="PatchOperationAdd">
+            <success>Always</success>
+            <xpath>*/AlienRace.ThingDef_AlienRace[defName = "Android5Tier"]/alienRace/raceRestriction</xpath>
+            <value>
+              <recipeList>
+                <li>CreateT5Android</li>
+              </recipeList>
+            </value>
+          </match>
         </li>
       </operations>
     </match>
