@@ -146,11 +146,11 @@ namespace AllTheTweaks {
 				return;
 			}
 
-			foreach (Verse.PatchOperation patch in modContentPack.Patches) {
-				if (patch != null && patch is ATTPatchOperationToggleable operationToggable1) {
+			foreach (var patch in modContentPack.Patches) {
+				if (patch is ATTPatchOperationToggleable operationToggable1) {
 					var flag = false;
-					for (var index = 0; index < operationToggable1.mods.Count; ++index) {
-						if (ModLister.HasActiveModWithName(operationToggable1.mods[index])) {
+					foreach (var mod in operationToggable1.mods) {
+						if (ModLister.HasActiveModWithName(mod)) {
 							flag = true;
 						}
 						else {
@@ -160,7 +160,7 @@ namespace AllTheTweaks {
 					}
 
 					if (flag && operationToggable1.label == settingHandle.Name) {
-						XmlDocument xmlDocument = new XmlDocument();
+						var xmlDocument = new XmlDocument();
 						xmlDocument.Load(operationToggable1.sourceFile);
 						string xpath =
 							"Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\" and label=\"" +

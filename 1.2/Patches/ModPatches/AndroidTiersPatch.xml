@@ -105,23 +105,26 @@
             </RecipeDef>
           </value>
         </li>
-        <li Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
-          <enabled>True</enabled>
-          <mods>
-            <li>Android tiers</li>
-          </mods>
-          <label>_doesT5CraftingNeedT5</label>
-          <match Class="PatchOperationAdd">
-            <success>Always</success>
-            <xpath>*/AlienRace.ThingDef_AlienRace[defName = "Android5Tier"]/alienRace/raceRestriction</xpath>
-            <value>
-              <recipeList>
-                <li>CreateT5Android</li>
-              </recipeList>
-            </value>
-          </match>
-        </li>
       </operations>
+    </match>
+  </Operation>
+  <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
+    <enabled>False</enabled>
+    <mods>
+      <li>Android tiers</li>
+    </mods>
+    <label>_doesT5CraftingNeedT5</label>
+    <match Class="PatchOperationConditional">
+      <xpath>*/RecipeDef[defName = "CreateT5Android"]</xpath>
+      <nomatch></nomatch>
+      <match Class="PatchOperationAdd">
+        <xpath>*/AlienRace.ThingDef_AlienRace[defName = "Android5Tier"]/alienRace/raceRestriction</xpath>
+        <value>
+          <recipeList>
+            <li>CreateT5Android</li>
+          </recipeList>
+        </value>
+      </match>
     </match>
   </Operation>
 </Patch>
