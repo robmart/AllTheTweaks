@@ -26,8 +26,9 @@ namespace AllTheTweaks {
 		private SettingHandle<int> _reqT5CraftLevel;
 		private SettingHandle<int> _t5CraftPlasteel;
 		private SettingHandle<int> _t5CraftComponentSpacer;
+		private SettingHandle<int> _t5CraftUranium;
 
-		private bool _oldCheeseValue;
+		private bool _oldCheeseValue; //TODO: Should be semi-permanent, probably via a hidden SettingHandle
 		public override void DefsLoaded() {
 			_canThrumbosBeMilked = Settings.GetHandle(
 				"_canThrumbosBeMilked",
@@ -171,6 +172,18 @@ namespace AllTheTweaks {
 			_t5CraftComponentSpacer.SpinnerIncrement = 5;
 			_t5CraftComponentSpacer.OnValueChanged = newValue => {
 				OnIntValueChanged(_t5CraftComponentSpacer, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"ComponentSpacer\"]/count/text()");
+			};
+			_t5CraftUranium = Settings.GetHandle(
+				"_t5CraftUranium",
+				"_t5CraftUranium_title".Translate(),
+				"_t5CraftUranium_desc".Translate(),
+				180,
+				Validators.IntRangeValidator(0, 500)
+			);
+			_t5CraftUranium.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
+			_t5CraftUranium.SpinnerIncrement = 20;
+			_t5CraftUranium.OnValueChanged = newValue => {
+				OnIntValueChanged(_t5CraftUranium, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"Uranium\"]/count/text()");
 			};
 		}
 

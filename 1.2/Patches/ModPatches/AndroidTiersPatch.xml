@@ -62,7 +62,6 @@
                     </thingDefs>
                   </filter>
                   <count>180</count>
-                  <!-- TODO: Config setting for this -->
                 </li>
                 <li>
                   <filter>
