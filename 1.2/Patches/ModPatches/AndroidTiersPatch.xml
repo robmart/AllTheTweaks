@@ -109,7 +109,7 @@
     </match>
   </Operation>
   <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
-    <enabled>False</enabled>
+    <enabled>True</enabled>
     <mods>
       <li>Android tiers</li>
     </mods>

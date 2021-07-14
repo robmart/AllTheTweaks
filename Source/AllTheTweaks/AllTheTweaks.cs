@@ -23,6 +23,7 @@ namespace AllTheTweaks {
 		private SettingHandle<int> _reqAmbrosiaGrowLevel;
 		private SettingHandle<bool> _canT5BeCrafted;
 		private SettingHandle<bool> _doesT5CraftingNeedT5;
+		private SettingHandle<int> _reqT5CraftLevel;
 
 		private bool _oldCheeseValue;
 		public override void DefsLoaded() {
@@ -110,7 +111,7 @@ namespace AllTheTweaks {
 				Validators.IntRangeValidator(0, 20)
 			);
 			_reqAmbrosiaGrowLevel.OnValueChanged = newValue => {
-				OnGrowLevelNeededChanged(_reqAmbrosiaGrowLevel, newValue);
+				OnIntValueChanged(_reqAmbrosiaGrowLevel, newValue, "Growable_Ambrosia.xml", "Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowMinSkill/text()");
 			};
 			
 			_canT5BeCrafted = Settings.GetHandle(
@@ -131,6 +132,16 @@ namespace AllTheTweaks {
 			);
 			_doesT5CraftingNeedT5.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesT5CraftingNeedT5, newValue);
+			};
+			_reqT5CraftLevel = Settings.GetHandle(
+				"_reqT5CraftLevel",
+				"_reqT5CraftLevel_title".Translate(),
+				"_reqT5CraftLevel_desc".Translate(),
+				18,
+				Validators.IntRangeValidator(0, 20)
+			);
+			_reqT5CraftLevel.OnValueChanged = newValue => {
+				OnIntValueChanged(_reqT5CraftLevel, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/skillRequirements/Crafting/text()");
 			};
 		}
 
@@ -229,13 +240,11 @@ namespace AllTheTweaks {
 				);
 		}
 		
-		private void OnGrowLevelNeededChanged(SettingHandle<int> settingHandle, int newValue) {
-			var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, "Growable_Ambrosia.xml");
+		private void OnIntValueChanged(SettingHandle<int> settingHandle, int newValue, string fileName, string xpath) {
+			var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, fileName);
 			var xmlDocument = dictionary.First().Key;
 			var patch = dictionary.First().Value;
-
-			const string xpath = "Patch/Operation[@Class=\"AllTheTweaks.PatchOperation.ATTPatchOperationToggleable\"]/match[@Class=\"PatchOperationSequence\"]/operations/li[@Class=\"PatchOperationAdd\"]/value/sowMinSkill/text()";
-
+			
 			xmlDocument.SelectSingleNode(xpath).Value = newValue.ToString();
 					
 			File.WriteAllText(
