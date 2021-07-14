@@ -78,7 +78,6 @@
                     </thingDefs>
                   </filter>
                   <count>16</count>
-                  <!-- TODO: Config setting for this -->
                 </li>
               </ingredients>
               <products>
