@@ -16,6 +16,10 @@
 			<downloadUrl>https://github.com/AndroidQuazar/VanillaExpandedFramework</downloadUrl>
 		</li>
 	</modDependencies>
+	<loadAfter>
+		<li>Atlas.AndroidTiers</li>
+		<li>VanillaExpanded.VCookE</li>
+	</loadAfter>
 	<description>A set of small tweaks created purely for myself</description>
 	
 </ModMetaData>
