@@ -122,6 +122,7 @@ namespace AllTheTweaks {
 				"_canT5BeCrafted_desc".Translate(),
 				true
 			);
+			_canT5BeCrafted.VisibilityPredicate = () => LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_canT5BeCrafted.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_canT5BeCrafted, newValue);
 			};
@@ -132,6 +133,7 @@ namespace AllTheTweaks {
 				"_doesT5CraftingNeedT5_desc".Translate(),
 				true
 			);
+			_doesT5CraftingNeedT5.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_doesT5CraftingNeedT5.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesT5CraftingNeedT5, newValue);
 			};
@@ -142,6 +144,7 @@ namespace AllTheTweaks {
 				18,
 				Validators.IntRangeValidator(0, 20)
 			);
+			_reqT5CraftLevel.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_reqT5CraftLevel.OnValueChanged = newValue => {
 				OnIntValueChanged(_reqT5CraftLevel, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/skillRequirements/Crafting/text()");
 			};
@@ -152,6 +155,7 @@ namespace AllTheTweaks {
 				250,
 				Validators.IntRangeValidator(0, 1000)
 			);
+			_t5CraftPlasteel.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_t5CraftPlasteel.SpinnerIncrement = 25;
 			_t5CraftPlasteel.OnValueChanged = newValue => {
 				OnIntValueChanged(_t5CraftPlasteel, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"Plasteel\"]/count/text()");
@@ -163,6 +167,7 @@ namespace AllTheTweaks {
 				30,
 				Validators.IntRangeValidator(0, 100)
 			);
+			_t5CraftComponentSpacer.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_t5CraftComponentSpacer.SpinnerIncrement = 5;
 			_t5CraftComponentSpacer.OnValueChanged = newValue => {
 				OnIntValueChanged(_t5CraftComponentSpacer, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"ComponentSpacer\"]/count/text()");
