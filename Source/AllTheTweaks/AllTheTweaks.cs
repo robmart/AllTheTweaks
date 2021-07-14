@@ -30,9 +30,31 @@ namespace AllTheTweaks {
 		private SettingHandle<int> _t5CraftAIPersonaCore;
 		private SettingHandle<int> _t5CraftGold;
 		private SettingHandle<bool> _doesT5CraftingNeedResearch;
+		private SettingHandle<bool> _doesT5ResearchNeedT5;
 
-		private bool _oldCheeseValue; //TODO: Should be semi-permanent, probably via a hidden SettingHandle
+		private SettingHandle<bool> _oldCheeseValue; 
+		private SettingHandle<bool> _oldDoesT5CraftingNeedResearch; 
+		private SettingHandle<bool> _oldDoesT5ResearchNeedT5; 
 		public override void DefsLoaded() {
+			//Hidden values
+			_oldCheeseValue = Settings.GetHandle(
+				"_oldCheeseValue",
+				"_oldCheeseValue_title",
+				"_oldCheeseValue_desc",
+				true
+			);
+			_oldCheeseValue.NeverVisible = true;
+			_oldCheeseValue.CanBeReset = true;
+			_oldDoesT5ResearchNeedT5 = Settings.GetHandle(
+				"_oldT5ResearchValue",
+				"_oldT5ResearchValue_title",
+				"_oldT5ResearchValue_desc",
+				true
+			);
+			_oldDoesT5ResearchNeedT5.NeverVisible = true;
+			_oldDoesT5ResearchNeedT5.CanBeReset = true;
+			
+			//Normal settings
 			_canThrumbosBeMilked = Settings.GetHandle(
 				"_canThrumbosBeMilked",
 				"_canThrumbosBeMilked_title".Translate(),
@@ -44,6 +66,7 @@ namespace AllTheTweaks {
 				switch (newValue) {
 					case false:
 						_oldCheeseValue = _canThrumboMilkBeCheese;
+						_oldCheeseValue.HasUnsavedChanges = true;
 						_canThrumboMilkBeCheese.Value =
 							false; //If you can't milk Thrumbos you shouldn't be able to make cheese from them either
 						_canThrumboMilkBeCheese.HasUnsavedChanges = true;
@@ -129,6 +152,18 @@ namespace AllTheTweaks {
 			_canT5BeCrafted.VisibilityPredicate = () => LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_canT5BeCrafted.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_canT5BeCrafted, newValue);
+				switch (newValue) {
+					case false:
+						_oldDoesT5CraftingNeedResearch = _doesT5CraftingNeedResearch;
+						_oldDoesT5CraftingNeedResearch.HasUnsavedChanges = true;
+						_doesT5CraftingNeedResearch.Value = false;
+						_doesT5CraftingNeedResearch.HasUnsavedChanges = true;
+						break;
+					case true:
+						_doesT5CraftingNeedResearch.Value = _oldDoesT5CraftingNeedResearch;
+						_doesT5CraftingNeedResearch.HasUnsavedChanges = true;
+						break;
+				}
 			};
 			
 			_doesT5CraftingNeedT5 = Settings.GetHandle(
@@ -222,6 +257,28 @@ namespace AllTheTweaks {
 			_doesT5CraftingNeedResearch.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesT5CraftingNeedResearch, newValue);
 				OnT5ResearchNeededChanged(_doesT5CraftingNeedResearch, newValue);
+				switch (newValue) {
+					case false:
+						_oldDoesT5ResearchNeedT5 = _doesT5ResearchNeedT5;
+						_oldDoesT5ResearchNeedT5.HasUnsavedChanges = true;
+						_doesT5ResearchNeedT5.Value = false;
+						_doesT5ResearchNeedT5.HasUnsavedChanges = true;
+						break;
+					case true:
+						_doesT5ResearchNeedT5.Value = _oldDoesT5ResearchNeedT5;
+						_doesT5ResearchNeedT5.HasUnsavedChanges = true;
+						break;
+				}
+			};
+			_doesT5ResearchNeedT5 = Settings.GetHandle(
+				"_doesT5ResearchNeedT5",
+				"_doesT5ResearchNeedT5_title".Translate(),
+				"_doesT5ResearchNeedT5_desc".Translate(),
+				true
+			);
+			_doesT5ResearchNeedT5.VisibilityPredicate = () => _canT5BeCrafted && _doesT5CraftingNeedResearch && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
+			_doesT5ResearchNeedT5.OnValueChanged = newValue => {
+				OnConfigValueToggleableChanged(_doesT5ResearchNeedT5, newValue);
 			};
 		}
 

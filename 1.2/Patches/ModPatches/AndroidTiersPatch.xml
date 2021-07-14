@@ -150,4 +150,21 @@
       </match>
     </match>
   </Operation>
+  <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
+    <enabled>True</enabled>
+    <mods>
+      <li>Android tiers</li>
+    </mods>
+    <label>_doesT5ResearchNeedT5</label>
+    <match Class="PatchOperationConditional">
+      <xpath>*/RecipeDef[defName = "CreateT5Android"]</xpath>
+      <nomatch></nomatch>
+      <match Class="PatchOperationAdd">
+        <xpath>*/AlienRace.ThingDef_AlienRace[defName = "Android5Tier"]/alienRace/raceRestriction/researchList/li/projects</xpath>
+        <value>
+          <li>ATTT5Androids</li>
+        </value>
+      </match>
+    </match>
+  </Operation>
 </Patch>
