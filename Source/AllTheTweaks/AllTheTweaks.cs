@@ -95,7 +95,7 @@ namespace AllTheTweaks {
 			);
 			_doesAmbrosiaNeedToBeResearched.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesAmbrosiaNeedToBeResearched, newValue);
-				OnResearchNeededChanged(_doesAmbrosiaNeedToBeResearched, newValue);
+				OnAmbrosiaResearchNeededChanged(_doesAmbrosiaNeedToBeResearched, newValue);
 			};
 
 			_doesAmbrosiaNeedHydroponics = Settings.GetHandle(
@@ -106,7 +106,7 @@ namespace AllTheTweaks {
 			);
 			_doesAmbrosiaNeedHydroponics.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesAmbrosiaNeedHydroponics, newValue);
-				OnHydroponicsNeededChanged(_doesAmbrosiaNeedHydroponics, newValue);
+				OnAmbrosiaHydroponicsNeededChanged(_doesAmbrosiaNeedHydroponics, newValue);
 			};
 
 			_reqAmbrosiaGrowLevel = Settings.GetHandle(
@@ -221,6 +221,7 @@ namespace AllTheTweaks {
 			_doesT5CraftingNeedResearch.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
 			_doesT5CraftingNeedResearch.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_doesT5CraftingNeedResearch, newValue);
+				OnT5ResearchNeededChanged(_doesT5CraftingNeedResearch, newValue);
 			};
 		}
 
@@ -273,7 +274,7 @@ namespace AllTheTweaks {
 			}
 		}
 
-		private void OnResearchNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
+		private void OnAmbrosiaResearchNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
 			var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, "Growable_Ambrosia.xml");
 			var xmlDocument = dictionary.First().Key;
 			var patch = dictionary.First().Value;
@@ -296,7 +297,7 @@ namespace AllTheTweaks {
 			);
 		}
 		
-		private void OnHydroponicsNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
+		private void OnAmbrosiaHydroponicsNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
 				var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, "Growable_Ambrosia.xml");
 				var xmlDocument = dictionary.First().Key;
 				var patch = dictionary.First().Value;
@@ -331,6 +332,27 @@ namespace AllTheTweaks {
 				GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
 			);
 		}
+		
+		private void OnT5ResearchNeededChanged(SettingHandle<bool> settingHandle, bool newValue) {
+			var dictionary = GlobalSettingsUtilities.GetDocumentFromModContentPack(ModContentPack, "AndroidTiersPatch.xml");
+			var xmlDocument = dictionary.First().Key;
+			var patch = dictionary.First().Value;
+
+			const string xpath = "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/researchPrerequisite/text()";
+			
+			if (!newValue) {
+				xmlDocument.SelectSingleNode(xpath).Value = "T4Androids";
+			}
+			else {
+				xmlDocument.SelectSingleNode(xpath).Value = "ATTT5Androids";
+			}
+			
+			File.WriteAllText(
+				patch.sourceFile,
+				GlobalSettingsUtilities.PrettyXml(xmlDocument.OuterXml)
+			);
+		}
+
 		
 		#endregion
 
