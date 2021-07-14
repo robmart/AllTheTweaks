@@ -29,6 +29,7 @@ namespace AllTheTweaks {
 		private SettingHandle<int> _t5CraftUranium;
 		private SettingHandle<int> _t5CraftAIPersonaCore;
 		private SettingHandle<int> _t5CraftGold;
+		private SettingHandle<bool> _doesT5CraftingNeedResearch;
 
 		private bool _oldCheeseValue; //TODO: Should be semi-permanent, probably via a hidden SettingHandle
 		public override void DefsLoaded() {
@@ -210,6 +211,16 @@ namespace AllTheTweaks {
 			_t5CraftGold.SpinnerIncrement = 4;
 			_t5CraftGold.OnValueChanged = newValue => {
 				OnIntValueChanged(_t5CraftGold, newValue, "AndroidTiersPatch.xml", "Patch/Operation/match/operations/li/value/RecipeDef[defName=\"CreateT5Android\"]/ingredients/li[filter/thingDefs/li = \"Gold\"]/count/text()");
+			};
+			_doesT5CraftingNeedResearch = Settings.GetHandle(
+				"_doesT5CraftingNeedResearch",
+				"_doesT5CraftingNeedResearch_title".Translate(),
+				"_doesT5CraftingNeedResearch_desc".Translate(),
+				true
+			);
+			_doesT5CraftingNeedResearch.VisibilityPredicate = () => _canT5BeCrafted && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.AndroidTiers);
+			_doesT5CraftingNeedResearch.OnValueChanged = newValue => {
+				OnConfigValueToggleableChanged(_doesT5CraftingNeedResearch, newValue);
 			};
 		}
 

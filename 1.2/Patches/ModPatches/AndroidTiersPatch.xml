@@ -4,6 +4,36 @@
     <mods>
       <li>Android tiers</li>
     </mods>
+    <label>_doesT5CraftingNeedResearch</label>
+    <match Class="PatchOperationAdd">
+      <success>Always</success>
+      <xpath>/Defs</xpath>
+      <value>
+        <ResearchProjectDef>
+          <defName>ATTT5Androids</defName>
+          <label>T5 androids</label>
+          <tab>AtlasAndroids</tab>
+          <description>Research how to develop the ultimate android, a version superior to event the T4. Allows the construction of the T5 Android.</description>
+          <baseCost>5000</baseCost>
+          <techLevel>Spacer</techLevel>
+          <researchViewX>5</researchViewX>
+          <researchViewY>2</researchViewY>
+          <prerequisites>
+            <li>T4Androids</li>
+          </prerequisites>
+          <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+          <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+          </requiredResearchFacilities>
+        </ResearchProjectDef>
+      </value>
+    </match>
+  </Operation>
+  <Operation Class="AllTheTweaks.PatchOperation.ATTPatchOperationToggleable">
+    <enabled>True</enabled>
+    <mods>
+      <li>Android tiers</li>
+    </mods>
     <label>_canT5BeCrafted</label>
     <match Class="PatchOperationSequence">
       <success>Always</success>
