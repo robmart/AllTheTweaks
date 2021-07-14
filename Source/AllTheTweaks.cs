@@ -4,6 +4,7 @@ using System.Linq;
 using System.Xml;
 using AllTheTweaks.PatchOperation;
 using AllTheTweaks.References;
+using AllTheTweaks.Settings;
 using AllTheTweaks.Utilities;
 using HugsLib;
 using HugsLib.Settings;
@@ -14,9 +15,12 @@ namespace AllTheTweaks {
 	public class AllTheTweaks : ModBase {
 		#region Config
 
+		private SettingsCategory _thrumboCategory;
+		
 		private SettingHandle<bool> _canThrumbosBeMilked;
 		private SettingHandle<bool> _canThrumboMilkBeCheese;
 		private SettingHandle<bool> _canThrumbosGrowWool;
+		
 		private SettingHandle<bool> _canAmbrosiaBeGrown;
 		private SettingHandle<bool> _doesAmbrosiaNeedToBeResearched;
 		private SettingHandle<bool> _doesAmbrosiaNeedHydroponics;
@@ -55,6 +59,9 @@ namespace AllTheTweaks {
 			_oldDoesT5ResearchNeedT5.NeverVisible = true;
 			_oldDoesT5ResearchNeedT5.CanBeReset = true;
 			
+			//Category
+			_thrumboCategory = new SettingsCategory("_thrumboCategory", Settings);
+			
 			//Normal settings
 			_canThrumbosBeMilked = Settings.GetHandle(
 				"_canThrumbosBeMilked",
@@ -78,6 +85,7 @@ namespace AllTheTweaks {
 						break;
 				}
 			};
+			_thrumboCategory.Add(_canThrumbosBeMilked);
 
 			_canThrumboMilkBeCheese = Settings.GetHandle(
 				"_canThrumboMilkBeCheese",
@@ -90,6 +98,7 @@ namespace AllTheTweaks {
 			};
 			_canThrumboMilkBeCheese.VisibilityPredicate = () =>
 				_canThrumbosBeMilked && LoadedModManager.RunningMods.Any(pack => pack.Name == ModNameConstants.VCE);
+			_thrumboCategory.Add(_canThrumboMilkBeCheese);
 
 			_canThrumbosGrowWool = Settings.GetHandle(
 				"_canThrumbosGrowWool",
@@ -100,6 +109,7 @@ namespace AllTheTweaks {
 			_canThrumbosGrowWool.OnValueChanged = newValue => {
 				OnConfigValueToggleableChanged(_canThrumbosGrowWool, newValue);
 			};
+			_thrumboCategory.Add(_canThrumbosGrowWool);
 
 			_canAmbrosiaBeGrown = Settings.GetHandle(
 				"_canAmbrosiaBeGrown",
