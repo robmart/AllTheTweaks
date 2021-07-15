@@ -43,7 +43,7 @@ namespace AllTheTweaks.Settings {
 				}
 				Widgets.DrawLineHorizontal(
 					2f,
-					rect.position.y + rect.height * normalcount + 6.425f * _containedSettings.Count + totalheight,
+					rect.position.y + rect.ExpandedBy(2.85f).height * normalcount + totalheight,
 					rect.width - 2
 				);
 			}
