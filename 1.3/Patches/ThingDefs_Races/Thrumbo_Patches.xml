@@ -4,7 +4,7 @@
     <value>
       <nameOnTameChance>1</nameOnTameChance>
       <nuzzleMtbHours>80</nuzzleMtbHours>
-      <nameOnNuzzleChance>1</nameOnNuzzleChance>
+      <!--TODO: <nameOnNuzzleChance>1</nameOnNuzzleChance>-->
     </value>
   </Operation>
   <Operation Class="PatchOperationAdd">
