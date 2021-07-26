@@ -39,6 +39,7 @@
     <description>An extremely rare delicacy, only Glitter World aristocracy has the privilege to consume it even once in their lifetime.</description>
     <graphicData>
       <texPath>Things/Item/Milk/ThrumboMilk</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <stackLimit>25</stackLimit>
     <rotatable>false</rotatable>
