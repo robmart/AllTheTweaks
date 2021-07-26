@@ -26,7 +26,7 @@
     </ingestible>
     <comps>
       <li Class="CompProperties_Rottable">
-        <daysToRotStart>90</daysToRotStart>
+        <daysToRotStart>80</daysToRotStart>
         <rotDestroys>true</rotDestroys>
       </li>
     </comps>
@@ -49,10 +49,10 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
       <DeteriorationRate>10</DeteriorationRate>
-      <Mass>0.03</Mass>
-      <Nutrition>0.05</Nutrition>
+      <Mass>0.05</Mass>
+      <Nutrition>0.07</Nutrition>
       <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
-      <MarketValue>4</MarketValue>
+      <MarketValue>6</MarketValue>
     </statBases>
     <ingestible>
       <preferability>RawTasty</preferability>
@@ -74,11 +74,11 @@
   </ThingDef>
   
   <ThingDef ParentName="PlantFoodRawBase">
-    <defName>RawPortobello</defName>
-    <label>portobello</label>
-    <description>Raw Portobello mushrooms. Can be used as a substitute for meat.</description>
+    <defName>RawChantarelle</defName>
+    <label>chantarelle</label>
+    <description>Raw Chantarelle mushrooms. Can be used as a substitute for meat.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/PlantFoodRaw/Portobello</texPath>
+      <texPath>Things/Item/Resource/PlantFoodRaw/Chantarelle</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <socialPropernessMatters>true</socialPropernessMatters>
@@ -87,9 +87,9 @@
       <Flammability>1.0</Flammability>
       <DeteriorationRate>10</DeteriorationRate>
       <Mass>0.03</Mass>
-      <Nutrition>0.05</Nutrition>
+      <Nutrition>0.04</Nutrition>
       <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
-      <MarketValue>4</MarketValue>
+      <MarketValue>7</MarketValue>
     </statBases>
     <ingestible>
       <preferability>RawTasty</preferability>
@@ -100,7 +100,7 @@
     </ingestible>
     <comps>
       <li Class="CompProperties_Rottable">
-        <daysToRotStart>90</daysToRotStart>
+        <daysToRotStart>70</daysToRotStart>
         <rotDestroys>true</rotDestroys>
       </li>
     </comps>
