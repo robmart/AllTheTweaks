@@ -1,0 +1,112 @@
+﻿<Defs>
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>RawCremini</defName>
+    <label>cremini</label>
+    <description>Raw Cremini mushrooms. Can be used as a substitute for meat.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/PlantFoodRaw/Cremini</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>10</DeteriorationRate>
+      <Mass>0.03</Mass>
+      <Nutrition>0.05</Nutrition>
+      <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
+      <MarketValue>4</MarketValue>
+    </statBases>
+    <ingestible>
+      <preferability>RawTasty</preferability>
+      <tasteThought></tasteThought>
+      <foodType>VegetableOrFruit</foodType>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>80</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <tickerType>Rare</tickerType>
+    <thingCategories>
+      <li>MeatRaw</li>
+    </thingCategories>
+  </ThingDef>
+  
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>RawPortobello</defName>
+    <label>portobello</label>
+    <description>Raw Portobello mushrooms. Can be used as a substitute for meat.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/PlantFoodRaw/Portobello</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>10</DeteriorationRate>
+      <Mass>0.05</Mass>
+      <Nutrition>0.07</Nutrition>
+      <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
+      <MarketValue>6</MarketValue>
+    </statBases>
+    <ingestible>
+      <preferability>RawTasty</preferability>
+      <tasteThought></tasteThought>
+      <foodType>VegetableOrFruit</foodType>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>90</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <tickerType>Rare</tickerType>
+    <thingCategories>
+      <li>MeatRaw</li>
+    </thingCategories>
+  </ThingDef>
+  
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>RawChantarelle</defName>
+    <label>chantarelle</label>
+    <description>Raw Chantarelle mushrooms. Can be used as a substitute for meat.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/PlantFoodRaw/Chantarelle</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>10</DeteriorationRate>
+      <Mass>0.03</Mass>
+      <Nutrition>0.04</Nutrition>
+      <FoodPoisonChanceFixedHuman>0</FoodPoisonChanceFixedHuman>
+      <MarketValue>7</MarketValue>
+    </statBases>
+    <ingestible>
+      <preferability>RawTasty</preferability>
+      <tasteThought></tasteThought>
+      <foodType>VegetableOrFruit</foodType>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>70</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <tickerType>Rare</tickerType>
+    <thingCategories>
+      <li>MeatRaw</li>
+    </thingCategories>
+  </ThingDef>
+</Defs>
